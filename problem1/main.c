@@ -38,27 +38,49 @@ void printArray(struct array *parr)
 
 void getArray(struct array *parr)
 {
-    struct array array1;
-    char numero [array1.size];
-    int val;
+    int size;
+    printf("Ingrese el tamaño del arreglo\n");
+    scanf("%i",&size);
+    //parr->size= size;
 
-    printf("Ingrese un numero");
-    if (fgets(numero, 5, stdin) != NULL)
+    int numero[size];
+    for(int i=0; i <size; i++)
     {
-        numero[strlen(numero) -1 ] = 0;
-        printf("El caracter a convertir es %s\n", numero);
-    }
+      printf("ingresa el valor %i\n", i+1);
+      scanf("%i", &numero[i]);
 
-    errno = 0;
-    int successItems = sscanf(numero,"%d",&val);
-    if(successItems == 1){
-        printf("val: %d\n", val);
+       //*parr->pdata = numero[i];
     }
-    else{
-        printf("sscanf fails\n");
-    }
+    printf(numero, size);
+   
+   
+    // char numeros[40];
+    // printf("Ingrese el tamaño del arreglo ");
+    // if (fgets(name, 40, stdin) != NULL)
+    // {
+    //     printf("Hello %s!\n", name);
+    // }
+    
+    // struct array array1;
+    // char numero [parr->size];
+    // int val;
+    // int n;
 
-    exit(EXIT_SUCCESS);
+    // printf("Enter the length of the array: ");
+
+    // printf("Ingrese un numero");
+    // if (fgets(numero, parr->size, stdin) != NULL)
+    // {
+    //     numero[strlen(numero) -1 ] = 0;
+    //     printf("El caracter a convertir es %s\n", numero);
+    //     scanf("%s", &parr->size);
+    // }
+    // printf("Enter %d elements of the array \n",n);
+
+    // for(int i = 0; i < n; i++){
+    //     scanf("%d", &parr->pdata[i]);
+    // }
+   
 }
 
 void arrayCommon(struct array *arrIn1, struct array *arrIn2, struct array *arrOut)
