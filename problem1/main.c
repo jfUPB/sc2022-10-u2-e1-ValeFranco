@@ -38,28 +38,23 @@ void printArray(struct array *parr)
 
 void getArray(struct array *parr)
 {
-    int size;
-    printf("Ingrese el tamaño del arreglo\n");
-    scanf("%i",&size);
-    //parr->size= size;
-
-    int numero[size];
-    for(int i=0; i <size; i++)
+    char numeros[40];
+    printf("Ingrese el arreglo ");
+    if (fgets(name, 40, stdin) != NULL)
     {
-      printf("ingresa el valor %i\n", i+1);
-      scanf("%i", &numero[i]);
+        numero[strlen(numero) -1 ] = 0;
+        printf("El caracter a convertir es %s\n", numero);
+        scanf(numero, "%d", &parr->size);
+        parr->pdata = malloc(sizeof(int)*parr->size);
 
-       //*parr->pdata = numero[i];
+        for (int i = 0; i < parr->size; i++)
+        {
+            if(fgets(numeros,40, stdin)!=NULL)
+            {
+               sscanf(numeros,"%d", &parr->pdata+1);
+            }
+        }   
     }
-    printf(numero, size);
-   
-   
-    // char numeros[40];
-    // printf("Ingrese el tamaño del arreglo ");
-    // if (fgets(name, 40, stdin) != NULL)
-    // {
-    //     printf("Hello %s!\n", name);
-    // }
     
     // struct array array1;
     // char numero [parr->size];
@@ -71,16 +66,27 @@ void getArray(struct array *parr)
     // printf("Ingrese un numero");
     // if (fgets(numero, parr->size, stdin) != NULL)
     // {
-    //     numero[strlen(numero) -1 ] = 0;
-    //     printf("El caracter a convertir es %s\n", numero);
-    //     scanf("%s", &parr->size);
+        
     // }
     // printf("Enter %d elements of the array \n",n);
 
     // for(int i = 0; i < n; i++){
     //     scanf("%d", &parr->pdata[i]);
     // }
-   
+    // int size;
+    // printf("Ingrese el tamaño del arreglo\n");
+    // scanf("%i",&size);
+    // //parr->size= size;
+
+    // int numero[size];
+    // for(int i=0; i <size; i++)
+    // {
+    //   printf("ingresa el valor %i\n", i+1);
+    //   scanf("%i", &numero[i]);
+
+    //    //*parr->pdata = numero[i];
+    // }
+    // printf(numero, size);
 }
 
 void arrayCommon(struct array *arrIn1, struct array *arrIn2, struct array *arrOut)
