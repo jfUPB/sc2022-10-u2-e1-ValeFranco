@@ -39,19 +39,18 @@ void printArray(struct array *parr)
 void getArray(struct array *parr)
 {
     char numeros[40];
-    printf("Ingrese el arreglo ");
-    if (fgets(name, 40, stdin) != NULL)
+    
+    if (fgets(numeros, 40, stdin) != NULL)
     {
-        numero[strlen(numero) -1 ] = 0;
-        printf("El caracter a convertir es %s\n", numero);
-        scanf(numero, "%d", &parr->size);
+        numeros[strlen(numeros) -1 ] = 0;
+        sscanf(numeros, "%d", &parr->size);
         parr->pdata = malloc(sizeof(int)*parr->size);
 
         for (int i = 0; i < parr->size; i++)
         {
             if(fgets(numeros,40, stdin)!=NULL)
             {
-               sscanf(numeros,"%d", &parr->pdata+1);
+               sscanf(numeros, " %d ", parr->pdata+i);
             }
         }   
     }
