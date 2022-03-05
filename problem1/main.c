@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include <stdint.h>
 
 #ifdef DOLOG
 #define LOG(...) fprintf(log, __VA_ARGS__);
@@ -37,6 +38,17 @@ void printArray(struct array *parr)
 void getArray(struct array *parr)
 {
     
+    char Numero[5];
+    printf("Ingrese un numero");
+    if (fgets(Numero, 5, stdin) != NULL)
+    {
+        Numero[strlen(Numero) -1 ] = 0;
+        printf("numero #%s ingresado\n", Numero);
+    }
+    for(uint8_t i = 0; i < strlen(Numero);i++){
+        printf("Numero[%d]: %c\n",i,Numero[i]);
+    }
+
 }
 
 void arrayCommon(struct array *arrIn1, struct array *arrIn2, struct array *arrOut)
