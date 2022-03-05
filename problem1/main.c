@@ -111,7 +111,21 @@ void arrayCommon(struct array *arrIn1, struct array *arrIn2, struct array *arrOu
         }   
     }
 
-    
+    for (int i = 0; i < arrIn1->size; i++)
+    {  
+        for (int j = 0; j < arrIn2->size; j++)
+        {
+            if(*arrIn1->pdata== *arrIn2->pdata)
+            {
+                int elementoRepetido= *arrIn1->pdata;
+
+               for (int k = 0; k < arrOut->size; k++)
+               {
+                    *arrOut->pdata = elementoRepetido;
+               }
+            }
+        }   
+    }   
      
 }
 
