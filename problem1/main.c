@@ -79,7 +79,7 @@ void arrayCommon(struct array *arrIn1, struct array *arrIn2, struct array *arrOu
                 {
                    if(arrSalida[x]!= elementoRepetido)
                    {
-                      estaRepetido++;
+                      estaRepetido=1;
                       x=contador;
                    }
 
@@ -100,58 +100,7 @@ void arrayCommon(struct array *arrIn1, struct array *arrIn2, struct array *arrOu
     for (int k = 0; k < arrOut->size; k++)
     {
         *(arrOut->pdata+k)= arrSalida[k];
-    }  
-    // int contador=0;
-    // int arrSalida[20];
-    // int elementoIgual;
-    // int elementoActual;
-    // //int repetidos=0;
-
-    // for (int i = 0; i < arrIn1->size; i++)
-    // {  
-    //     for (int j = 0; j < arrIn2->size; j++)
-    //     {
-    //         if(arrIn1->pdata[i]== arrIn2->pdata[j])
-    //         {
-    //             elementoIgual= arrIn1->pdata[i];
-    //             elementoActual= elementoIgual;
-    //             arrSalida[contador]=elementoActual;
-    //             contador++;
-                
-                
-    //             // for (int x = 0; x < contador; x++)
-    //             // {
-    //             //    if (arrSalida[x]!=elementoActual)
-    //             //     {
-    //             //        contador++;
-    //             //        arrSalida[x]=elementoActual;
-    //             //        x=contador; 
-    //             //     }
-    //             // }
-    //         }
-           
-        //    if(arrIn1->pdata[i]== arrIn2->pdata[j])
-        //     {
-        //         elementoIgual= arrIn1->pdata[i];
-        //         elementoActual= elementoIgual;
-        //         //arrSalida[contador]=elementoActual;
-        //         contador++;
-                
-                
-        //         for (int x = 0; x < contador; x++)
-        //         {
-        //            if (arrSalida[x]!=elementoActual)
-        //             {
-        //                contador++;
-        //                arrSalida[x]=elementoActual;
-        //                x=contador; 
-        //             }
-        //         }
-    //     //     }
-    //     } 
-     
-    // }  
-    
+    }   
 }
 
 void freeMemory(struct array *arr1, struct array *arr2, struct array *arr3)
