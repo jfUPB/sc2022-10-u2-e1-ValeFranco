@@ -81,8 +81,7 @@ void arrayCommon(struct array *arrIn1, struct array *arrIn2, struct array *arrOu
     int contador=0;
     int arrSalida[20];
     int elementoRepetido;
-    int repetidoActual;
-
+    
     for (int i = 0; i < arrIn1->size; i++)
     {  
         for (int j = 0; j < arrIn2->size; j++)
@@ -90,14 +89,8 @@ void arrayCommon(struct array *arrIn1, struct array *arrIn2, struct array *arrOu
             if(arrIn1->pdata[i]== arrIn2->pdata[j])
             {
                 elementoRepetido= arrIn1->pdata[i];
-                repetidoActual= elementoRepetido;
-
-                if(elementoRepetido!= repetidoActual)
-                {
-                   arrSalida[contador]=elementoRepetido;
-                   contador++;
-                }
-                
+                arrSalida[contador]=elementoRepetido;
+                contador++;
             }
         } 
     }  
