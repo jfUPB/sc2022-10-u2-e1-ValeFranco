@@ -38,9 +38,9 @@ void printArray(struct array *parr)
 
 void getArray(struct array *parr)
 {
-    char numeros[40];
+    char numeros[50];
     
-    if (fgets(numeros, 40, stdin) != NULL)
+    if (fgets(numeros, 50, stdin) != NULL)
     {
         numeros[strlen(numeros) -1 ] = 0;
         sscanf(numeros, "%d", &parr->size);
@@ -48,7 +48,7 @@ void getArray(struct array *parr)
 
         for (int i = 0; i < parr->size; i++)
         {
-            if(fgets(numeros,40, stdin)!=NULL)
+            if(fgets(numeros,50, stdin)!=NULL)
             {
                sscanf(numeros, " %d ", parr->pdata+i);
             }
@@ -71,19 +71,12 @@ void arrayCommon(struct array *arrIn1, struct array *arrIn2, struct array *arrOu
             if(arrIn1->pdata[i]== arrIn2->pdata[j])
             {
                 elementoRepetido= arrIn1->pdata[i];
-                //arrSalida[contador]=elementoRepetido;
-                //contador++;
-                //repetidoActual= elementoRepetido;
 
                 for (int x = 0; x < contador; x++)
                 {
-                   if(arrSalida[x]== elementoRepetido)
+                   if(arrSalida[x]!= elementoRepetido)
                    {
-                      estaRepetido=0;
-                      x=contador;
-                   }
-                   else{
-                        estaRepetido=1;
+                      estaRepetido=1;
                    }
 
                 }
