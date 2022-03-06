@@ -77,10 +77,13 @@ void arrayCommon(struct array *arrIn1, struct array *arrIn2, struct array *arrOu
 
                 for (int x = 0; x < contador; x++)
                 {
-                   if(arrSalida[x]!= elementoRepetido)
+                   if(arrSalida[x]== elementoRepetido)
                    {
-                      estaRepetido=1;
+                      estaRepetido=0;
                       x=contador;
+                   }
+                   else{
+                        estaRepetido=1;
                    }
 
                 }
