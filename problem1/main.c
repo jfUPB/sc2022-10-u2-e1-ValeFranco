@@ -54,45 +54,46 @@ void getArray(struct array *parr)
             }
         }   
     }
-    
-    // printf("Enter %d elements of the array \n",n);
 
-    // for(int i = 0; i < n; i++){
-    //     scanf("%d", &parr->pdata[i]);
-    // }
-    // int size;
-    // printf("Ingrese el tamaño del arreglo\n");
-    // scanf("%i",&size);
-    // //parr->size= size;
-
-    // int numero[size];
-    // for(int i=0; i <size; i++)
-    // {
-    //   printf("ingresa el valor %i\n", i+1);
-    //   scanf("%i", &numero[i]);
-
-    //    //*parr->pdata = numero[i];
-    // }
-    // printf(numero, size);
 }
 
 void arrayCommon(struct array *arrIn1, struct array *arrIn2, struct array *arrOut)
 { 
     int contador=0;
     int arrSalida[20];
-    int elementoRepetido;
-    
+    int elementoIgual;
+    int elementoActual;
+    int repetidos=0;
+
     for (int i = 0; i < arrIn1->size; i++)
     {  
         for (int j = 0; j < arrIn2->size; j++)
         {
             if(arrIn1->pdata[i]== arrIn2->pdata[j])
             {
-                elementoRepetido= arrIn1->pdata[i];
-                arrSalida[contador]=elementoRepetido;
+                elementoIgual= arrIn1->pdata[i];
+                elementoActual= elementoIgual;
+                //arrSalida[contador]=elementoActual;
                 contador++;
+
+                for (int x = 0; x < repetidos; x++)
+                {
+                   if (arrSalida[x]==elementoActual)
+                    {
+                       contador++;
+                       x=repetidos;
+                    }
+                }
+                if(contador==1)
+                {
+                   arrSalida[repetidos]=elementoActual;
+                   repetidos++;
+                }
+                
             }
+           
         } 
+        contador=0;
     }  
     arrOut->size = contador;
     arrOut->pdata = malloc(sizeof(int)*arrOut->size);
@@ -100,25 +101,7 @@ void arrayCommon(struct array *arrIn1, struct array *arrIn2, struct array *arrOu
     for (int k = 0; k < arrOut->size; k++)
     {
         *(arrOut->pdata+k)= arrSalida[k];
-    }  
-   
-     
-    //    for (int i = 0; i < arr1; i++)
-    // {  
-    //     for (int j = 0; j < arr2; j++)
-    //     {
-    //         if(arr1[i]== arr2[j])
-    //         {
-    //             int elementoRepetido= arr1[i];
-
-    //            for (int k = 0; k < arrOut->size; k++)
-    //            {
-    //                 *arrOut->pdata = elementoRepetido;
-    //            }
-
-    //         }
-    //     }   
-    // }   
+    }    
 }
 
 void freeMemory(struct array *arr1, struct array *arr2, struct array *arr3)
