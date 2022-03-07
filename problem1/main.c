@@ -72,7 +72,6 @@ void arrayCommon(struct array *arrIn1, struct array *arrIn2, struct array *arrOu
             {
                 estaRepetido=0;
                 elementoRepetido= arrIn1->pdata[i];
-                //arrSalida[contador] = 0;
 
                 for (int x = 0; x < contador; x++)
                 {
