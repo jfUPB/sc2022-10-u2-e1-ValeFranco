@@ -61,7 +61,7 @@ void arrayCommon(struct array *arrIn1, struct array *arrIn2, struct array *arrOu
 {   int contador=0;
     int arrSalida[20];
     int elementoRepetido;
-    int estaRepetido=0;
+     int estaRepetido=0;
     
 
     for (int i = 0; i < arrIn1->size; i++)
@@ -70,7 +70,9 @@ void arrayCommon(struct array *arrIn1, struct array *arrIn2, struct array *arrOu
         {
             if(arrIn1->pdata[i]== arrIn2->pdata[j])
             {
+                estaRepetido=0;
                 elementoRepetido= arrIn1->pdata[i];
+                //arrSalida[contador] = 0;
 
                 for (int x = 0; x < contador; x++)
                 {
@@ -90,12 +92,15 @@ void arrayCommon(struct array *arrIn1, struct array *arrIn2, struct array *arrOu
         } 
         estaRepetido=0;
     }  
+    
     arrOut->size = contador;
     arrOut->pdata = malloc(sizeof(int)*arrOut->size);
+   
     
     for (int k = 0; k < arrOut->size; k++)
     {
-        *(arrOut->pdata+k)= arrSalida[k];
+       *(arrOut->pdata+k)= arrSalida[k];
+       
     }   
 }
 
