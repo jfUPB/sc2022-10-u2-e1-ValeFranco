@@ -59,7 +59,7 @@ void getArray(struct array *parr)
 
 void arrayCommon(struct array *arrIn1, struct array *arrIn2, struct array *arrOut)
 {   int contador=0;
-    int arrSalida[20];
+    int arrSalida[50];
     int elementoRepetido;
      int estaRepetido=0;
     
@@ -72,6 +72,7 @@ void arrayCommon(struct array *arrIn1, struct array *arrIn2, struct array *arrOu
             {
                 estaRepetido=0;
                 elementoRepetido= arrIn1->pdata[i];
+
 
                 for (int x = 0; x < contador; x++)
                 {
@@ -89,7 +90,7 @@ void arrayCommon(struct array *arrIn1, struct array *arrIn2, struct array *arrOu
                 
             }
         } 
-        estaRepetido=0;
+        
     }  
     
     arrOut->size = contador;
