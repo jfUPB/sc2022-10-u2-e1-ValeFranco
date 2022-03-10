@@ -60,8 +60,8 @@ void getArray(struct array *parr)
 void arrayCommon(struct array *arrIn1, struct array *arrIn2, struct array *arrOut)
 {   int contador=0;
     int arrSalida[50];
-    int elementoRepetido;
-     int estaRepetido=0;
+    int elementoRepetido=0;
+    int estaRepetido=0;
     
 
     for (int i = 0; i < arrIn1->size; i++)
@@ -73,16 +73,15 @@ void arrayCommon(struct array *arrIn1, struct array *arrIn2, struct array *arrOu
                 estaRepetido=0;
                 elementoRepetido= arrIn1->pdata[i];
 
-
                 for (int x = 0; x < contador; x++)
                 {
-                   if(arrSalida[x]!= elementoRepetido)
+                   if(arrSalida[x]==elementoRepetido)
                    {
                       estaRepetido=1;
                    }
 
                 }
-                if(estaRepetido==1)
+                if(estaRepetido!=1)
                 {
                    arrSalida[contador]=elementoRepetido;
                    contador++;
@@ -99,7 +98,7 @@ void arrayCommon(struct array *arrIn1, struct array *arrIn2, struct array *arrOu
     
     for (int k = 0; k < arrOut->size; k++)
     {
-       *(arrOut->pdata+k)= arrSalida[k];
+        *(arrOut->pdata+k)= arrSalida[k];
        
     }   
 }
