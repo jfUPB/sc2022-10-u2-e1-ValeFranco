@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include <stdint.h>
+#include <errno.h>
 
 #ifdef DOLOG
 #define LOG(...) fprintf(log, __VA_ARGS__);
@@ -36,12 +38,69 @@ void printArray(struct array *parr)
 
 void getArray(struct array *parr)
 {
+    char numeros[50];
     
+    if (fgets(numeros, 50, stdin) != NULL)
+    {
+        numeros[strlen(numeros) -1 ] = 0;
+        sscanf(numeros, "%d", &parr->size);
+        parr->pdata = malloc(sizeof(int)*parr->size);
+
+        for (int i = 0; i < parr->size; i++)
+        {
+            if(fgets(numeros,50, stdin)!=NULL)
+            {
+               sscanf(numeros, " %d ", parr->pdata+i);
+            }
+        }   
+    }
+
 }
 
 void arrayCommon(struct array *arrIn1, struct array *arrIn2, struct array *arrOut)
-{
+{   int contador=0;
+    int arrSalida[50];
+    int elementoRepetido=0;
+    int estaRepetido=0;
     
+
+    for (int i = 0; i < arrIn1->size; i++)
+    {  
+        for (int j = 0; j < arrIn2->size; j++)
+        {
+            if(arrIn1->pdata[i]== arrIn2->pdata[j])
+            {
+                estaRepetido=0;
+                elementoRepetido= arrIn1->pdata[i];
+
+                for (int x = 0; x < contador; x++)
+                {
+                   if(arrSalida[x]==elementoRepetido)
+                   {
+                      estaRepetido=1;
+                   }
+
+                }
+                if(estaRepetido!=1)
+                {
+                   arrSalida[contador]=elementoRepetido;
+                   contador++;
+                }
+                
+            }
+        } 
+        estaRepetido=0;
+    }  
+    
+    arrOut->size = contador;
+    arrOut->pdata = malloc(sizeof(int)*arrOut->size);
+   
+    
+    for (int k = 0; k < arrOut->size; k++)
+    {
+        *(arrOut->pdata+k)= arrSalida[k];
+       
+    }   
 }
 
 void freeMemory(struct array *arr1, struct array *arr2, struct array *arr3)
